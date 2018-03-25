@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package br.com.fatecpg.poo.ads.servlets;
 
 import java.io.IOException;
@@ -11,38 +7,65 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.text.DecimalFormat;
 
-/**
- *
- * @author tanat
- */
+
 public class jurosComposto extends HttpServlet {
 
-    /**
-     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
-     * methods.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
+   
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet jurosComposto</title>");            
+            out.println("<title>Juros Composto</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet jurosComposto at " + request.getContextPath() + "</h1>");
+            DecimalFormat df = new DecimalFormat("###,##0.00");
+            out.println("<center><form><table style='text-align:right;'>"
+                    + "<tr><td>Taxa de Juros:</td><td> <input type'text' name='j'/></td></tr>"
+                    + "<tr><td>Valor:</td><td> <input type='text' name='v'/></td></tr>"
+                    + "<tr><td>Periodo:</td><td> <input type='text' name='p'/></td></tr>"
+                    + "<tr><td colspan='2'><center><input type='submit' value='Calculo'/><center></td></tr>"
+                    + "</form></table></center><hr>");
+            out.println("<center><table width='100%' style='text-align:left;'>");
+            out.println("<tr>"
+                    + "<th>Valor </th>"
+                    + "<th>Com juros</th>"
+                    + "<th>Mês</th>"
+                    + "</tr>");
+            double j = 100;
+            double cj=0;
+            double v = 0;
+            int p = 0;
+            try{
+                j = Double.parseDouble(request.getParameter("j"));
+                v = Double.parseDouble(request.getParameter("v"));
+                p = Integer.parseInt(request.getParameter("p"));
+            }
+            catch(Exception ex)
+            {
+                
+            }
+            cj = v;
+            j = j/100;
+            for(int i = 0; i < p; i++){
+                
+                cj = (j * cj) + cj;
+                out.println("<tr>"
+                    + "<td>R$"+ df.format(v) +"</td>"
+                    + "<td> R$" + df.format(cj) + "</td>"
+                    + "<td>" + (i+1) + "</td>"
+                    + "</tr>");            
+            }
+            out.println("</table></center>");
             out.println("</body>");
             out.println("</html>");
         }
     }
+
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
