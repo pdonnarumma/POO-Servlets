@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package br.com.fatecpg.poo.ads.servlets;
 
 import java.io.IOException;
@@ -12,22 +8,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/**
- *
- * @author tanat
- */
+
 public class jurosSimples extends HttpServlet {
 
-    /**
-     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
-     * methods.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
+    
+     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
@@ -35,10 +20,52 @@ public class jurosSimples extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet jurosSimples</title>");            
+            
+           
+            out.println("<title>Servlet jurosSimpless</title>");      
+            out.println("<link rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css\" integrity=\"sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm\" crossorigin=\"anonymous\">\n" +
+"<script src=\"https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js\" integrity=\"sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl\" crossorigin=\"anonymous\"></script>"
+                    );
+            out.println("<link rel='stylesheet' type='text/css' href='" + request.getContextPath() +"style.css'>");
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet jurosSimples at " + request.getContextPath() + "</h1>");
+            out.println("<h1 class='teste'> Juros Simples</h1>");
+            out.println("<form method='get'>"
+                    + "<div class=\"form-group\">\n" +
+"    <label for=\"exampleFormControlInput1\">Capital:</label>\n" +
+"    <input type=\"text\" class=\"form-control\" id=\"exampleFormControlInput1\" placeholder=\"Informe o capital\" name='capital'>\n" +
+"  </div>"
+                    + "<div class=\"form-group\">\n" +
+"    <label for=\"exampleFormControlInput1\">Taxa de Juros:</label>\n" +
+"    <input type=\"text\" class=\"form-control\" id=\"exampleFormControlInput1\" placeholder=\"Informe a taxa de juros\" name='taxaJuros'>\n" +
+"  </div>"
+                    + "<div class=\"form-group\">\n" +
+"    <label for=\"exampleFormControlInput1\">Periodo:</label>\n" +
+"    <input type=\"text\" class=\"form-control\" id=\"exampleFormControlInput1\" placeholder=\"Informe o periodo em meses\" name='periodo'>\n" +
+"  </div>"
+                    + "<input type='submit' value='Calcular'> </form>");
+            
+            
+            
+            double capital = 0;
+            double taxaJuros = 0;
+            int periodo = 0;
+            double montante = 0;
+            double converteTaxa = 0;
+            double juros = 0;
+            
+             capital = Double.parseDouble(request.getParameter("capital"));
+             taxaJuros = Double.parseDouble(request.getParameter("taxaJuros"));
+             periodo = Integer.parseInt(request.getParameter("periodo"));
+             
+            converteTaxa = (taxaJuros/100);
+            juros = ((capital * converteTaxa)*periodo);
+            montante = capital + juros;
+            out.println("<h1> Juros: "+juros + "</h1>");
+            out.println("<h1>Montante: "+montante + "</h1>");
+            out.println("");
+            out.println("");
+            out.println("");
             out.println("</body>");
             out.println("</html>");
         }
