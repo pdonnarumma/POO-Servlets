@@ -8,8 +8,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.text.DecimalFormat;
+import javax.servlet.annotation.WebServlet;
 
-
+@WebServlet(name = "jurosComposto", urlPatterns = {"/jurosComposto"})
 public class jurosComposto extends HttpServlet {
 
    
@@ -50,7 +51,7 @@ public class jurosComposto extends HttpServlet {
                     "</table></center>");
 
             out.println("<hr>");
-            out.println("<center><table width='100%' style='text-align:left;'>");
+            out.println("<center><table width='100%' style='text-align:center;'>");
             out.println("<tr>"
                     + "<th>Valor </th>"
                     + "<th>Com juros</th>"

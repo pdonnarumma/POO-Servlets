@@ -4,46 +4,47 @@ package br.com.fatecpg.poo.ads.servlets;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-
+@WebServlet(name = "Home", urlPatterns = {"/home"})
 public class Home extends HttpServlet {
 
-   
+    
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
-            
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Cáculo de Juros</title>");
-            out.println("<meta name='viewport' content='width=device-width, initial-scale=1.0'>");
-            out.println("<link rel='stylesheet' type='text/css' href='_css/Style.css'/>");         
+            out.println("<title>Home</title>"); 
+            out.println("<meta charset=\"UTF-8\">");
+            out.println("<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">");
+            out.println("<link rel=\"stylesheet\" type=\"text/css\" href=\"_CSS/estilo.css\"/>");
             out.println("</head>");
-            out.println("<body>");
             
-            out.println("<h1 align='center'>Cálculo de Juros</h1>");
+            out.println("<body>");
+            out.println("<h1 align=\"center\">Cálculo de Juros</h1>");
             out.println("<hr>");
             out.println("<hr>");
-            out.println("<div id='parceiros'>");
-            out.println("<table id='parceiro' align='center'>");
-            out.println("<tr>");
-            out.println("<td id='logos'>");
-            out.println("<p><a href='/Nova pasta (2)/jurosSimples'>Juros Simples</a></p>");
-            out.println("</td>");
-            out.println("<td id='logos'>");
-            out.println("<p><a href='/Nova pasta (2)/jurosComposto'>Juros Composto</a></p>");
-            out.println("</td>");
+            out.println("<div id=\"parceiros\">");
+            out.println("<table id=\"parceiro\" align=\"center\">");
+            out.println("<tr>");            
+            out.println("<td id=\"logos\">\n" +
+"                          <p><a href=\"/POO-Servlets/jurosSimples\">Juros Simples</a></p>\n" +
+"                      </td>\n" +
+"                      <td id=\"logos\">\n" +
+"                          <p><a href=\"/POO-Servlets/juroscomposto\">Juros Composto</a></p>\n" +
+"                      </td>");
             out.println("</tr>");
             out.println("</table>");
             out.println("</div>");
             out.println("</body>");
-            out.println("</html");
+            out.println("</html>");
         }
     }
 
