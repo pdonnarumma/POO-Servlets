@@ -61,6 +61,7 @@ public class jurosSimples extends HttpServlet {
             converteTaxa = (taxaJuros/100);
             juros = ((capital * converteTaxa)*periodo);
             montante = capital + juros;
+            out.println("<hr>");
             out.println("<h1> Juros: "+juros + "</h1>");
             out.println("<h1>Montante: "+montante + "</h1>");
             out.println("");

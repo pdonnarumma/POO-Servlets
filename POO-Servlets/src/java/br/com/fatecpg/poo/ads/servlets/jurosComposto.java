@@ -20,45 +20,68 @@ public class jurosComposto extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Juros Composto</title>");            
+            
+            out.println("<title>Juros Composto</title>");
+            out.println("<title>Servlet jurosSimpless</title>");      
+            out.println("<link rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css\" integrity=\"sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm\" crossorigin=\"anonymous\">\n" +
+"<script src=\"https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js\" integrity=\"sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl\" crossorigin=\"anonymous\"></script>");            
+            
+            out.println("<link rel='stylesheet' type='text/css' href='" + request.getContextPath() +"style.css'>");
             out.println("</head>");
-            out.println("<body>");
             DecimalFormat df = new DecimalFormat("###,##0.00");
-            out.println("<center><form><table style='text-align:right;'>"
-                    + "<tr><td>Taxa de Juros:</td><td> <input type'text' name='j'/></td></tr>"
-                    + "<tr><td>Valor:</td><td> <input type='text' name='v'/></td></tr>"
-                    + "<tr><td>Periodo:</td><td> <input type='text' name='p'/></td></tr>"
-                    + "<tr><td colspan='2'><center><input type='submit' value='Calculo'/><center></td></tr>"
-                    + "</form></table></center><hr>");
+            out.println("<body>");
+            
+            out.println("<h1 class='teste'> Juros Composto</h1>");
+            out.println("<center><form><table style= text-align:right;'>" +
+                    "<form method='get'>"
+                    + "<div class=\"form-group\">\n" +
+"    <label for=\"exampleFormControlInput1\">Valor:</label>\n" +
+"    <input type=\"text\" class=\"form-control\" id=\"exampleFormControlInput1\" placeholder=\"Informe o capital\" name='capital'>\n" +
+"  </div>"
+                    + "<div class=\"form-group\">\n" +
+"    <label for=\"exampleFormControlInput1\">Taxa de Juros:</label>\n" +
+"    <input type=\"text\" class=\"form-control\" id=\"exampleFormControlInput1\" placeholder=\"Informe a taxa de juros\" name='taxaJuros'>\n" +
+"  </div>"
+                    + "<div class=\"form-group\">\n" +
+"    <label for=\"exampleFormControlInput1\">Periodo:</label>\n" +
+"    <input type=\"text\" class=\"form-control\" id=\"exampleFormControlInput1\" placeholder=\"Informe o periodo em meses\" name='periodo'>\n" +
+"  </div>"
+                    + "<input type='submit' value='Calcular'> </form>" +
+                    "</table></center>");
+
+            out.println("<hr>");
             out.println("<center><table width='100%' style='text-align:left;'>");
             out.println("<tr>"
                     + "<th>Valor </th>"
                     + "<th>Com juros</th>"
                     + "<th>Mês</th>"
                     + "</tr>");
-            double j = 100;
+            
+            double taxaJuros = 100;
             double cj=0;
-            double v = 0;
-            int p = 0;
+            double capital = 0;
+            int periodo = 0;
             try{
-                j = Double.parseDouble(request.getParameter("j"));
-                v = Double.parseDouble(request.getParameter("v"));
-                p = Integer.parseInt(request.getParameter("p"));
+                taxaJuros = Double.parseDouble(request.getParameter("taxaJuros"));
+                capital = Double.parseDouble(request.getParameter("capital"));
+                periodo = Integer.parseInt(request.getParameter("periodo"));
             }
             catch(Exception ex)
             {
                 
             }
-            cj = v;
-            j = j/100;
-            for(int i = 0; i < p; i++){
+            cj = capital;
+            taxaJuros = taxaJuros/100;
+            for(int i = 0; i < periodo; i++){
                 
-                cj = (j * cj) + cj;
+                cj = (taxaJuros * cj) + cj;
+                
                 out.println("<tr>"
-                    + "<td>R$"+ df.format(v) +"</td>"
-                    + "<td> R$" + df.format(cj) + "</td>"
-                    + "<td>" + (i+1) + "</td>"
-                    + "</tr>");            
+                    + "<td>R$"+ df.format(capital) +"</td>" 
+                    + "<td> R$" + df.format(cj) + "</td>" 
+                    + "<td>" + (i+1) + "</td>" 
+                    + "</tr>"); 
+                
             }
             out.println("</table></center>");
             out.println("</body>");
