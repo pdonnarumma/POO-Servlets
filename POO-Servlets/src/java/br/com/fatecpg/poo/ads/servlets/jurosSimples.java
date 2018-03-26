@@ -1,4 +1,3 @@
-
 package br.com.fatecpg.poo.ads.servlets;
 
 import java.io.IOException;
@@ -24,7 +23,16 @@ public class jurosSimples extends HttpServlet {
             
            
             out.println("<title>Juros Simpless</title>");      
-            out.println("<meta name='viewport' content='width=device-width, initial-scale=1.0'>"
+            out.println("<meta name='viewport' content='width=device-width, initial-scale=1.0'>");
+            out.println("<nav class=\"navbar navbar-expand-lg navbar-dark bg-dark\">" +
+                "<div class=\"collapse navbar-collapse\" id=\"navbarNav\">" +
+                    "<ul class=\"navbar-nav\">" +
+                    "<li class=\"nav-item active\"><a class=\"nav-link\" href=\"/POO-Servlets/home\">Home </a></li>" +
+                    "<li class=\"nav-item\"><a class=\"nav-link\" href=\"/POO-Servlets/jurossimples\">Juros simples</a></li>"+
+                    "<li class=\"nav-item\"><a class=\"nav-link\" href=\"/POO-Servlets/juroscomposto\">Juros composto</a></li>" +
+                "</ul></div></nav>");
+            out.println("<link rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css\" integrity=\"sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm\" crossorigin=\"anonymous\">\n" +
+            "<script src=\"https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js\" integrity=\"sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl\" crossorigin=\"anonymous\"></script>"
                     );
             out.println("<link rel='stylesheet' type='text/css' href='_CSS/estilo.css'/>");
             
@@ -50,36 +58,35 @@ public class jurosSimples extends HttpServlet {
 "            var montante = num1 + juros;" );
             
             out.println("var elemResult = document.getElementById(\"resultado\");\n" +
-"\n" +
-"          if (elemResult.textContent === undefined) {\n" +
-"            elemResult.textContent = \"Juros: \" + String(juros) + \".\";\n" +
-"          }\n" +
-"          else { // IE\n" +
-"            elemResult.innerText = \"Juros: \" + String(juros) + \".\";\n" +
-"         }\n" +
-"\n" +
-"          var elemResult2 = document.getElementById(\"resultado2\");\n" +
-"\n" +
-"          if (elemResult2.textContent === undefined) {\n" +
-"            elemResult2.textContent = \"Montante: \" + String(montante) + \".\";\n" +
-"          }\n" +
-"          else { // IE\n" +
-"            elemResult2.innerText = \"Montante: \" + String(montante) + \".\";\n" +
-"         }\n" +
-"        }" );
+            "\n" +
+            "if (elemResult.textContent === undefined) {\n" +
+                "elemResult.textContent = \"Juros: \" + String(juros) + \".\";\n" +
+            "}\n" +
+            "else { // IE\n" +
+                "elemResult.innerText = \"Juros: \" + String(juros) + \".\";\n" +
+            "}\n" +
+            "\n" +
+                "var elemResult2 = document.getElementById(\"resultado2\");\n" +
+            "\n" +
+            "if (elemResult2.textContent === undefined) {\n" +
+                "elemResult2.textContent = \"Montante: \" + String(montante) + \".\";\n" +
+            "}\n" +
+            "else { // IE\n" +
+                "elemResult2.innerText = \"Montante: \" + String(montante) + \".\";\n" +
+            "}\n" +
+            "}" );
             
             out.println("</script>");
             
             out.println("<center><form><table style=\"text-align:right;\">");
             
             out.println("<tr><td>Capital:</td><td> <input type=\"text\" id=\"num1\" onblur=\"calcular();\" /></td></tr> \n" +
-"         <tr><td>Taxa de Juros:</td><td> <input type=\"text\" id=\"num2\" onblur=\"calcular();\" /></td></tr>\n" +
-"         <tr><td>Periodo:</td><td> <input type=\"text\" id=\"num3\" onblur=\"calcular();\" /></td></tr>" );
+            "<tr><td>Taxa de Juros:</td><td> <input type=\"text\" id=\"num2\" onblur=\"calcular();\" /></td></tr>\n" +
+            "<tr><td>Periodo:</td><td> <input type=\"text\" id=\"num3\" onblur=\"calcular();\" /></td></tr>" );
             
             out.println("</table></form></center><hr>");
-            
             out.println("<center><span id=\"resultado\"></span></center> <hr> <hr>\n" +
-"        <center><span id=\"resultado2\"></span></center>");
+            "<center><span id=\"resultado2\"></span></center>");
             
             out.println("</div>");
             out.println("</body>");
