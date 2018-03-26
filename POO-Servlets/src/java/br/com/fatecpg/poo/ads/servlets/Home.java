@@ -41,17 +41,31 @@ public class Home extends HttpServlet {
             out.println("<h1 align=\"center\">Cálculo de Juros</h1>");
             out.println("<hr>");
             out.println("<hr>");
-            out.println("<div id=\"parceiros\">");
+            out.println("<div>");
             out.println("<table id=\"parceiro\" align=\"center\">");
             out.println("<tr>");            
-            out.println("<td id=\"logos\">\n" +
-"                          <p><a href=\"/POO-Servlets/jurosSimples\">Juros Simples</a></p>\n" +
-"                      </td>\n" +
-"                      <td id=\"logos\">\n" +
-"                          <p><a href=\"/POO-Servlets/juroscomposto\">Juros Composto</a></p>\n" +
-"                      </td>");
+            out.println("<center>" +
+"                          <p>Edvaldo Augusto</p>" +
+                       
+                      
+"                          <p>Anthony Rodriques</p>" +
+                      
+                     
+"                          <p>Patrick Donnarumma</p>" +
+                    
+                    "<hr>" +
+                    "<hr>" +
+                    "<p><strong>Juros Simples</strong></p>" +
+"                    <p>Os juros simples são os rendimentos obtidos através de um investimento com capital inicial. Eles consistem no percentual calculado a partir deste valor</p>" +
+                    "<hr>"  +
+                    "<hr>" +
+                    "<p><strong>Juros Composto</strong></p>" +
+                    "<p>Juros composto são os juros de um determinado período somados ao capital para o cálculo de novos juros nos períodos seguintes.</p>" +  
+                        "</center>"
+                       );
             out.println("</tr>");
             out.println("</table>");
+            
             out.println("</div>");
             out.println("</body>");
             out.println("</html>");

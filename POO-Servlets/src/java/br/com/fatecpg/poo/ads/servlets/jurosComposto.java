@@ -33,31 +33,27 @@ public class jurosComposto extends HttpServlet {
                 "</ul></div></nav>");
             out.println("<link rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css\" integrity=\"sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm\" crossorigin=\"anonymous\">\n" +
             "<script src=\"https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js\" integrity=\"sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl\" crossorigin=\"anonymous\"></script>");            
-            out.println("<link rel='stylesheet' type='text/css' href='" + request.getContextPath() +"style.css'>");
+            out.println("<link rel=\"stylesheet\" type=\"text/css\" href=\"_CSS/estilo.css\"/>");
             out.println("</head>");
             DecimalFormat df = new DecimalFormat("###,##0.00");
             out.println("<body>");
             
-            out.println("<h1 class='teste'> Juros Composto</h1>");
-            out.println("<center><form><table style= text-align:right;'>" +
-            "<form method='get'>"
-            + "<div class=\"form-group\">\n" +
-            "    <label for=\"exampleFormControlInput1\">Valor:</label>\n" +
-            "    <input type=\"text\" class=\"form-control\" id=\"exampleFormControlInput1\" placeholder=\"Informe o capital\" name='capital'>\n" +
-            "  </div>"
-            + "<div class=\"form-group\">\n" +
-            "    <label for=\"exampleFormControlInput1\">Taxa de Juros:</label>\n" +
-            "    <input type=\"text\" class=\"form-control\" id=\"exampleFormControlInput1\" placeholder=\"Informe a taxa de juros\" name='taxaJuros'>\n" +
-            "  </div>"
-            + "<div class=\"form-group\">\n" +
-            "    <label for=\"exampleFormControlInput1\">Periodo:</label>\n" +
-            "    <input type=\"text\" class=\"form-control\" id=\"exampleFormControlInput1\" placeholder=\"Informe o periodo em meses\" name='periodo'>\n" +
-            "  </div>"
-            + "<input type='submit' value='Calcular'> </form>" +
-            "</table></center>");
+            out.println("<center><h1 class='teste'>Cálculo de Juros Composto</h1></center>");
+            out.println("<hr>");
+            
+            out.println("<center><form><table style=\"text-align:right;\">");
+            
+            out.println("<center><form><table style='text-align:right;'>"
+                    + "<tr><td>Valor:</td><td> <input type ='text' name='capital'/></td></tr>"
+                    + "<tr><td>Taxa de juros:</td><td> <input type='text' name='taxaJuros'/></td></tr>"
+                    + "<tr><td>Periodo:</td><td> <input type='text' name='periodo'/></td></tr>"
+                    + "<tr><td colspan='2'><input type='submit' value='Calculo'/></td></tr>"
+                    + "</form></table></center><hr>");
+            
+            out.println("</table></form></center><hr>");
 
             out.println("<hr>");
-            out.println("<center><table width='100%' style='text-align:center;'>");
+            out.println("<center><table width='30%' style='text-align:center;'>");
             out.println("<tr>"
                     + "<th>Valor </th>"
                     + "<th>Com juros</th>"
@@ -65,7 +61,7 @@ public class jurosComposto extends HttpServlet {
                     + "</tr>");
             
             double taxaJuros = 100;
-            double cj=0;
+            double nj = 0;
             double capital = 0;
             int periodo = 0;
             try{
@@ -75,17 +71,16 @@ public class jurosComposto extends HttpServlet {
             }
             catch(Exception ex)
             {
-                
             }
-            cj = capital;
+            nj = capital;
             taxaJuros = taxaJuros/100;
             for(int i = 0; i < periodo; i++){
                 
-                cj = (taxaJuros * cj) + cj;
+                nj = (taxaJuros * nj) + nj;
                 
                 out.println("<tr>"
                     + "<td>R$"+ df.format(capital) +"</td>" 
-                    + "<td> R$" + df.format(cj) + "</td>" 
+                    + "<td> R$" + df.format(nj) + "</td>" 
                     + "<td>" + (i+1) + "</td>" 
                     + "</tr>"); 
                 
