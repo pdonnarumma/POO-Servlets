@@ -23,10 +23,16 @@ public class jurosComposto extends HttpServlet {
             out.println("<head>");
             
             out.println("<title>Juros Composto</title>");
-            out.println("<title>Servlet jurosSimpless</title>");      
+            out.println("<title>Servlet jurosSimpless</title>");
+            out.println("<nav class=\"navbar navbar-expand-lg navbar-dark bg-dark\">" +
+                "<div class=\"collapse navbar-collapse\" id=\"navbarNav\">" +
+                    "<ul class=\"navbar-nav\">" +
+                    "<li class=\"nav-item active\"><a class=\"nav-link\" href=\"/POO-Servlets/home\">Home </a></li>" +
+                    "<li class=\"nav-item\"><a class=\"nav-link\" href=\"/POO-Servlets/jurossimples\">Juros simples</a></li>"+
+                    "<li class=\"nav-item\"><a class=\"nav-link\" href=\"/POO-Servlets/juroscomposto\">Juros composto</a></li>" +
+                "</ul></div></nav>");
             out.println("<link rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css\" integrity=\"sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm\" crossorigin=\"anonymous\">\n" +
-"<script src=\"https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js\" integrity=\"sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl\" crossorigin=\"anonymous\"></script>");            
-            
+            "<script src=\"https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js\" integrity=\"sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl\" crossorigin=\"anonymous\"></script>");            
             out.println("<link rel='stylesheet' type='text/css' href='" + request.getContextPath() +"style.css'>");
             out.println("</head>");
             DecimalFormat df = new DecimalFormat("###,##0.00");
@@ -34,21 +40,21 @@ public class jurosComposto extends HttpServlet {
             
             out.println("<h1 class='teste'> Juros Composto</h1>");
             out.println("<center><form><table style= text-align:right;'>" +
-                    "<form method='get'>"
-                    + "<div class=\"form-group\">\n" +
-"    <label for=\"exampleFormControlInput1\">Valor:</label>\n" +
-"    <input type=\"text\" class=\"form-control\" id=\"exampleFormControlInput1\" placeholder=\"Informe o capital\" name='capital'>\n" +
-"  </div>"
-                    + "<div class=\"form-group\">\n" +
-"    <label for=\"exampleFormControlInput1\">Taxa de Juros:</label>\n" +
-"    <input type=\"text\" class=\"form-control\" id=\"exampleFormControlInput1\" placeholder=\"Informe a taxa de juros\" name='taxaJuros'>\n" +
-"  </div>"
-                    + "<div class=\"form-group\">\n" +
-"    <label for=\"exampleFormControlInput1\">Periodo:</label>\n" +
-"    <input type=\"text\" class=\"form-control\" id=\"exampleFormControlInput1\" placeholder=\"Informe o periodo em meses\" name='periodo'>\n" +
-"  </div>"
-                    + "<input type='submit' value='Calcular'> </form>" +
-                    "</table></center>");
+            "<form method='get'>"
+            + "<div class=\"form-group\">\n" +
+            "    <label for=\"exampleFormControlInput1\">Valor:</label>\n" +
+            "    <input type=\"text\" class=\"form-control\" id=\"exampleFormControlInput1\" placeholder=\"Informe o capital\" name='capital'>\n" +
+            "  </div>"
+            + "<div class=\"form-group\">\n" +
+            "    <label for=\"exampleFormControlInput1\">Taxa de Juros:</label>\n" +
+            "    <input type=\"text\" class=\"form-control\" id=\"exampleFormControlInput1\" placeholder=\"Informe a taxa de juros\" name='taxaJuros'>\n" +
+            "  </div>"
+            + "<div class=\"form-group\">\n" +
+            "    <label for=\"exampleFormControlInput1\">Periodo:</label>\n" +
+            "    <input type=\"text\" class=\"form-control\" id=\"exampleFormControlInput1\" placeholder=\"Informe o periodo em meses\" name='periodo'>\n" +
+            "  </div>"
+            + "<input type='submit' value='Calcular'> </form>" +
+            "</table></center>");
 
             out.println("<hr>");
             out.println("<center><table width='100%' style='text-align:center;'>");
