@@ -8,6 +8,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+/**
+ *
+ * @author AnthonyRod93
+ */
+
 @WebServlet(name = "jurosSimpless", urlPatterns = {"/jurosSimples"})
 public class jurosSimples extends HttpServlet {
 
@@ -20,8 +25,6 @@ public class jurosSimples extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            
-           
             out.println("<title>Juros Simpless</title>");      
             out.println("<meta name='viewport' content='width=device-width, initial-scale=1.0'>");
             out.println("<nav class=\"navbar navbar-expand-lg navbar-dark bg-dark\">" +
