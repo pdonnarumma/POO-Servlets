@@ -93,10 +93,7 @@ public class jurosSimples extends HttpServlet {
             
             out.println("</div>");
             out.println("</body>");
-            out.println("</html>");
-            
-            
-            
+            out.println("</html>");   
             }
     }
 
